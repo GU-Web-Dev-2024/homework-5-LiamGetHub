@@ -170,13 +170,13 @@
             counterDisplay.textContent = "Artworks Viewed: 0";
 
             // Reset the background color of all panels and remove the 'viewed' class
-            const panels = document.querySelectorAll(".art-panel");
+            const panels = document.querySelectorAll(".art-panel"); // gets each art panel
             panels.forEach(panel => {
                 panel.style.backgroundColor = "#eee";  // Reset to original color
-                panel.classList.remove("viewed");
+                panel.classList.remove("viewed"); // removes viewd apsect
             });
         }
-
+        // event listner not working? function looks good tho.
         // Event listener for the "Reset Gallery" button
         document.getElementById("reset-button").addEventListener("click", resetGallery);
 
