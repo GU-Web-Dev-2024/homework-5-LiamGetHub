@@ -126,7 +126,43 @@
     </div>
 
     <!-- Placeholder for JavaScript Code -->
+    
+
+
     <script>
+
+        // Initialize counter
+        let viewedCount = 0;
+        const counterDisplay = document.getElementById("counter");
+
+        // Function to update the view counter
+        function updateCounter() {
+            viewedCount++;
+            counterDisplay.textContent = `Artworks Viewed: ${viewedCount}`;
+        }
+
+        // Function to handle panel clicks (change background color and update counter)
+        function handlePanelClick(event) {
+            const panel = event.currentTarget;
+    
+            // Change background color when clicked
+            panel.style.backgroundColor = "#d1c4e9";  // Any color of your choice
+
+            // Ensure the panel is only counted once
+            if (!panel.classList.contains("viewed")) {
+             updateCounter();
+             panel.classList.add("viewed");
+            }
+        }
+
+        // Add event listeners to existing panels
+        const panels = document.querySelectorAll(".art-panel");
+        panels.forEach(panel => panel.addEventListener("click", handlePanelClick));
+
+
+
+
+
         // List of additional artworks to add dynamically
         const newArtworks = [
             { title: 'The Scream', artist: 'Edvard Munch', img: 'https://via.placeholder.com/200' },
