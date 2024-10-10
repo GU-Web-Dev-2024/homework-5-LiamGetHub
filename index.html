@@ -130,7 +130,7 @@
 
 
     <script>
-
+        // ---------------------------------Step 1-----------------------
         // Initialize counter
         let viewedCount = 0;
         const counterDisplay = document.getElementById("counter");
@@ -158,6 +158,26 @@
         // Add event listeners to existing panels
         const panels = document.querySelectorAll(".art-panel");
         panels.forEach(panel => panel.addEventListener("click", handlePanelClick));
+        // --------------------------------------------------------
+
+
+        // ---------------------------------Step 2-----------------------
+
+        // Function to reset the gallery to its original state
+        function resetGallery() {
+            // Reset the view counter
+            viewedCount = 0;
+            counterDisplay.textContent = "Artworks Viewed: 0";
+
+            // Reset the background color of all panels and remove the 'viewed' class
+            const panels = document.querySelectorAll(".art-panel");
+            panels.forEach(panel => {
+                panel.style.backgroundColor = "#eee";  // Reset to original color
+                panel.classList.remove("viewed");
+            });
+        }
+
+        
 
 
 
