@@ -158,8 +158,7 @@
         // Add event listeners to existing panels
         const panels = document.querySelectorAll(".art-panel");
         panels.forEach(panel => panel.addEventListener("click", handlePanelClick));
-        // --------------------------------------------------------
-
+       
 
         // ---------------------------------Step 2-----------------------
 
@@ -180,6 +179,37 @@
         // Event listener for the "Reset Gallery" button
         document.getElementById("reset-button").addEventListener("click", resetGallery);
 
+
+
+
+// ---------------------------------Step 3-----------------------
+
+        // Reference to the art gallery container
+        const gallery = document.querySelector(".art-grid");
+
+        // Function to add a new artwork to the gallery
+        function addNewArtwork() {
+             // Generate a random index to select a new artwork
+            const randomIndex = Math.floor(Math.random() * newArtworks.length);
+            const art = newArtworks[randomIndex];
+
+            // Create a new panel element
+            const newPanel = document.createElement("div");
+            newPanel.classList.add("art-panel");
+            newPanel.innerHTML = `
+                <img src="${art.img}" alt="${art.title}">
+                <p>${art.title} by ${art.artist}</p>
+            `;
+
+            // Add click event listener to the new panel
+            newPanel.addEventListener("click", handlePanelClick);
+
+            // Append the new panel to the gallery
+            gallery.appendChild(newPanel);
+        }
+
+        // Event listener for the "Add New Artwork" button
+        document.getElementById("add-art-button").addEventListener("click", addNewArtwork);
 
 
         // List of additional artworks to add dynamically
